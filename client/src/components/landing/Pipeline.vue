@@ -18,7 +18,7 @@
                 <div class="flex md12 sm12 xs12">
                     <va-card class="row">
                         <div class="schema-image flex lg6 md6 sm12 xs12">
-                            <va-image lazy fit="contain" ratio="1" src="geneidx-schema.png"></va-image>
+                            <va-image lazy fit="contain" :ratio="1" src="geneidx-schema.png"></va-image>
                         </div>
                         <va-stepper class="flex lg6 md6 sm12 xs12 pipeline-steps" v-model="step" :steps="steps" vertical>
                             <template #step-content-0>

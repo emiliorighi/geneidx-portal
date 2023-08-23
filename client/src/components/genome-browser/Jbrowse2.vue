@@ -10,7 +10,6 @@
   import RefGetPlugin from 'jbrowse-plugin-refget-api'
   // import '@fontsource/roboto'
   const wrapper = ref(null)
-
   const props = defineProps({
     defaultSession: Object,
     configuration: Object,

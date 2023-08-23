@@ -1,8 +1,14 @@
+FROM guigolab/geneid:1.4.5 as geneid
+
 FROM python:3.7.11-stretch
 
 WORKDIR /server
 
 ADD . /server
+
+COPY --from=geneid /usr/local/bin/geneid /soft/GeneID/bin/
+
+RUN chmod u+x  /soft/GeneID/bin/
 
 RUN python -m pip install --upgrade pip
 

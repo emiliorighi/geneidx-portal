@@ -15,12 +15,13 @@ export type TPieChartData = ChartData<'pie'>
 export type TChartData = TLineChartData | TBarChartData | TBubbleChartData | TDoughnutChartData | TPieChartData
 
 export interface GeneidForm {
-  email: string,
-  mode: mode[number],
-  strand: strands[number],
-  output: output[number],
-  signal: signals[number],
-  exon: exons[number]
+  fastaInput: File | undefined,
+  gffInput: File | undefined,
+  mode: string,
+  strand: string,
+  output: string,
+  options: [],
+  paramFile: string,
 }
 
 

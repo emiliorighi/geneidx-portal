@@ -14,6 +14,11 @@ const routes: Array<RouteRecordRaw> = [
     component: LandingPage
   },
   {
+    name: 'geneid',
+    path: '/geneid',
+    component: () => import('../pages/geneid-form/GeneidForm.vue')
+  },
+  {
     name: 'dashboard',
     path: '/dashboard',
     component: () => import('../pages/dashboard/DashboardPage.vue'),

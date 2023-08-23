@@ -15,6 +15,14 @@ onMounted(() => {
 <style lang="scss">
 @import 'scss/main.scss';
 
+html {
+  overflow: hidden;
+}
+
+section {
+  min-height: 100vh;
+}
+
 #app {
   font-family: 'Source Sans Pro', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

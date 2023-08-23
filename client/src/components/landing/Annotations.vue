@@ -13,6 +13,7 @@
                 <va-input class="flex lg4 sm12 xs12" v-model="search.filter" type="search" label="Search species"
                     clearable />
                 <va-button class="flex" :disabled="emptyFilter" color="primary" icon="fa-search">Search</va-button>
+                <va-button class="flex" color="info">Explore all species</va-button>
             </div>
         </div>
     </section>

@@ -7,6 +7,7 @@ from .dump import dumps_controller
 from .cronjob import cronjobs_controller
 from .stats import stats_controller
 from .taxonomy import taxonomy_controller
+from .geneid import geneid_controller
 
 def initialize_routes(api):
 
@@ -16,6 +17,10 @@ def initialize_routes(api):
 	api.add_resource(cronjobs_controller.CronJobApi, '/api/cronjob', '/api/cronjob/<model>')
 	api.add_resource(dumps_controller.DumpApi, '/api/dumps/<model>')
 
+
+	#GENEID WEB SERVER
+	api.add_resource(geneid_controller.GeneIdServerApi, '/api/geneid')
+	
 	##TAXONOMY
 	api.add_resource(taxonomy_controller.TreeApi,'/api/tree', '/api/tree/<taxid>')
 	api.add_resource(taxonomy_controller.TreeStatusApi,'/api/tree/<taxid>/status')

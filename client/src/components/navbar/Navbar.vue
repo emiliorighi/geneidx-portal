@@ -1,16 +1,18 @@
 <template>
-  <div class="app-layout-navbar">
+  <header class="app-layout-navbar">
     <div class="left">
-      <va-icon-menu-collapsed :class="{ 'x-flip': isSidebarMinimized }" class="va-navbar__item" :color="colors.primary"
-        @click="isSidebarMinimized = !isSidebarMinimized" />
-    </div>
-    <div class="center">
       <h2 class="va-h3 va-navbar__item">geneid</h2>
+
+      <!-- <va-icon-menu-collapsed :class="{ 'x-flip': isSidebarMinimized }" class="va-navbar__item" :color="colors.primary"
+        @click="isSidebarMinimized = !isSidebarMinimized" /> -->
     </div>
+    <!-- <div class="center">
+      <h2 class="va-h3 va-navbar__item">geneid</h2>
+    </div> -->
     <div class="right">
       <app-navbar-actions class="app-navbar__actions md5 lg4" :user-name="userName" />
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup>
