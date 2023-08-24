@@ -1,5 +1,5 @@
 export const mode = [
-    { text: "Normal mode (signal, exon and gene prediction)", value: "normal" },
+    { text: "Normal mode (signal, exon and gene prediction)", value: "-R" },
     { text: "Exon mode (only signals and exons, omitting evidences)", value: "-o" },
     { text: "Assembling mode (only assembling evidences)", value: "-O" }
 ]

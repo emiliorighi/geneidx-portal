@@ -60,6 +60,9 @@
           <va-button type="submit">Submit</va-button>
         </va-card-actions>
       </va-form>
+      <div>
+        <!-- render transcripts test -->
+      </div>
     </div>
   </div>
 </template>
@@ -70,6 +73,8 @@ import { mode, strands, output, signals, exons } from '../../data/geneidParams'
 import ParameterSelection from './ParameterSelection.vue'
 import { useForm } from 'vuestic-ui'
 import GeneidService from '../../services/clients/GeneidService'
+import IsoformTrackViewer from '../../viz/IsoformTrackViewer'
+
 
 const { isValid, validate, resetValidation } = useForm('geneid')
 
