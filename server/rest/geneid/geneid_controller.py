@@ -1,4 +1,4 @@
-from flask import Response, request
+from flask import Response, request, send_from_directory
 from flask import current_app as app
 from flask_restful import Resource
 from . import geneid_service
@@ -14,6 +14,14 @@ PARAM_FILES_URL = 'https://raw.githubusercontent.com/guigolab/geneid-parameter-f
 DEFAULT_PARAM_FILE = 'Homo_sapiens.9606.param'
 GENEID_ARGS = ['strand','output']
 
+class GeneIdResultsApi(Resource):
+
+    def get(self, filename):
+        print(app.root_path)
+        mime_type = 'text/gff' if 'gff' in filename else None
+        return send_from_directory('tmp', filename, conditional=True, mimetype=mime_type)
+
+
 class GeneIdServerApi(Resource):
 
     """
@@ -22,9 +30,7 @@ class GeneIdServerApi(Resource):
         2) convert fasta to 2bit, tabindex gff
         3) store for 24h gff and 2bit results to visualize in jbrowse2
         4) create form to block more than 100 requests per IP
-    
     """
-    
     def post(self):
         try:
             data = request.form
@@ -59,7 +65,7 @@ class GeneIdServerApi(Resource):
                 if key in GENEID_ARGS and data[key]:
                     geneid_exec_args.append(data[key])
 
-            if 'options' in data.keys():
+            if 'options' in data.keys() and data['options']:
                 geneid_exec_args.extend(data['options'].split(','))
             gff_path = f'{TMP_STORAGE}/{tmp_uid}.gff'
             
@@ -76,12 +82,16 @@ class GeneIdServerApi(Resource):
             if 'mode' in data.keys() and data['mode'] == '-o':
                 geneid_exec_args.append(data['mode'])
 
-            output = check_output(geneid_exec_args)
-            
+            output = check_output(geneid_exec_args).decode("utf-8")
+            print(output)
+
             os.remove(fasta_path)
             if os.path.isfile(gff_path):
                 os.remove(gff_path)
 
         except Exception as e:
             app.logger.error(e)
-        raise InternalServerError
+            raise InternalServerError
+        
+        ## we return the url to download the file
+        return Response(output, mimetype="text/plain",status=200)

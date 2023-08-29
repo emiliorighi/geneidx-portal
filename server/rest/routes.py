@@ -20,7 +20,7 @@ def initialize_routes(api):
 
 	#GENEID WEB SERVER
 	api.add_resource(geneid_controller.GeneIdServerApi, '/api/geneid')
-	
+	api.add_resource(geneid_controller.GeneIdResultsApi, '/api/geneid/<filename>')
 	##TAXONOMY
 	api.add_resource(taxonomy_controller.TreeApi,'/api/tree', '/api/tree/<taxid>')
 	api.add_resource(taxonomy_controller.TreeStatusApi,'/api/tree/<taxid>/status')
