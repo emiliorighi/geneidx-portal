@@ -1,6 +1,11 @@
 FROM guigolab/geneid:1.4.5 as geneid
 
-FROM python:3.7.11-stretch
+FROM python:3.7.11
+
+RUN apt-get update && apt-get install -y \
+    tabix \
+    samtools \
+    genometools 
 
 WORKDIR /server
 
