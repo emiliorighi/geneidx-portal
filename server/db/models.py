@@ -101,9 +101,19 @@ class BioGenomeUser(db.Document):
     password=db.StringField(required=True)
     role=db.EnumField(Roles, required=True)
 
+
+## model that store users country
+class GeneIdUser(db.Document):
+    country=db.StringField(required=True)
+    ip_address=db.StringField(required=True, unique=True)
+    city=db.StringField()
+    requests=db.IntField(default=1)
+
+
 # # Store user queries here, ref to file model
 # # Queries are deleted after pipeline submission
-# class GeneidQuery(db.Document):
+# class GeneidQuery(db.Document)::
+
 #     user_mail = db.StringField(required=True)
 #     geneid_params = db.DictField()
 
