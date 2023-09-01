@@ -1,7 +1,5 @@
 import type { TChartData as ChartData } from 'vue-chartjs/dist/types'
 
-import type { mode,strands,output,signals,exons } from './geneidParams'
-
 export type ColorThemes = {
   [key: string]: string
 }
@@ -108,6 +106,11 @@ type Sequence = {
   trackId: string
   name: string
   adapter: Adapter
+}
+
+export type GeneidFile = {
+  extension:string,
+  filename:string
 }
 
 export type AssemblyAdapter = {
